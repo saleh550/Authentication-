@@ -1,7 +1,7 @@
 //jshint esversion:6
 // installed a package mongoose-encryption for level 2
-//install a package dotenv for level 3.
-require("dotenv").config();//level 3 , it's must to be the first line .
+//install a package dotenv for level 2.5.
+require("dotenv").config();//level 2.5 , it's must to be the first line .
 const express=require("express");
 const bodyparser=require("body-parser");
 const ejs=require("ejs");
@@ -25,7 +25,7 @@ const userschema=new mongoose.Schema({//I added "new mongoose.Schema()" for  lev
     password: String
 });
 
-// const secret="Thisisourlittlecedret.";//level 2 //after i used it in the level 2 , i will to use it from the .env file in level 3/
+// const secret="Thisisourlittlecedret.";//level 2 //after i used it in the level 2 , i will to use it from the .env file in level 2.5/
 userschema.plugin(encrypt,{secret:process.env.SECRET,encryptedFields:["password"]});//level 2 // process.env.SECRET for level 3 (.env file) , befor it was "secret" that i definded above.
 
 const User=new mongoose.model("User",userschema);
